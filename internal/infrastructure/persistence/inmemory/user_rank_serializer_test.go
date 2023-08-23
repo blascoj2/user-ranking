@@ -1,10 +1,11 @@
 package inmemory_test
 
 import (
+	"testing"
+
 	"github.com/stretchr/testify/assert"
 	"github.com/user-ranking/internal/domain"
 	"github.com/user-ranking/internal/infrastructure/persistence/inmemory"
-	"testing"
 )
 
 func TestUserRankSerializer_Serialize(t *testing.T) {

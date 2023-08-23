@@ -2,11 +2,12 @@ package http
 
 import (
 	"errors"
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 	log "github.com/sirupsen/logrus"
 	"github.com/user-ranking/internal/application"
 	"github.com/user-ranking/internal/domain"
-	"net/http"
 )
 
 func ProvideController(

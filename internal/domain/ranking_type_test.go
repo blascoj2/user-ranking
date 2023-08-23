@@ -1,10 +1,11 @@
 package domain_test
 
 import (
+	"testing"
+
 	"github.com/golang/mock/gomock"
 	"github.com/stretchr/testify/assert"
 	"github.com/user-ranking/internal/domain"
-	"testing"
 )
 
 func TestNewRankingType(t *testing.T) {

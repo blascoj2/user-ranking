@@ -3,9 +3,10 @@ package inmemory
 import (
 	"container/heap"
 	"context"
-	"github.com/user-ranking/internal/domain"
 	"sort"
 	"sync"
+
+	"github.com/user-ranking/internal/domain"
 )
 
 func ProvideInMemoryRepository() domain.Repository {

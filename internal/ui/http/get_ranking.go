@@ -1,9 +1,10 @@
 package http
 
 import (
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 	"github.com/user-ranking/internal/application"
-	"net/http"
 )
 
 type GetRankingHttpQuery struct {

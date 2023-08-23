@@ -1,8 +1,9 @@
 package domain_test
 
 import (
-	"github.com/user-ranking/internal/domain"
 	"testing"
+
+	"github.com/user-ranking/internal/domain"
 
 	"github.com/golang/mock/gomock"
 	"github.com/stretchr/testify/assert"

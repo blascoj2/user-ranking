@@ -3,13 +3,14 @@ package application_test
 import (
 	"context"
 	"errors"
+	"strconv"
+	"testing"
+
 	"github.com/golang/mock/gomock"
 	"github.com/stretchr/testify/assert"
 	"github.com/user-ranking/internal/application"
 	"github.com/user-ranking/internal/domain"
 	domain_mock "github.com/user-ranking/internal/mocks/domain"
-	"strconv"
-	"testing"
 )
 
 func TestSaveUserScoreTestHandler_Handle(t *testing.T) {

@@ -56,6 +56,12 @@ Top ranking type: Get /ranking?type="at100/3"
 Responses:
 
 * **200 OK** Ranking list.
+```json
+  [{
+    "user_id": "1",
+    "score": 100
+  }]
+```
 * **400 Bad Request** When there is a failure in the request format, expected headers, or the payload can't be unmarshalled.
 
 ### System Requirements:

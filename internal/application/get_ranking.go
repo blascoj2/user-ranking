@@ -2,6 +2,7 @@ package application
 
 import (
 	"context"
+
 	"github.com/user-ranking/internal/domain"
 )
 

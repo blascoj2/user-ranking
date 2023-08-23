@@ -3,13 +3,14 @@ package application_test
 import (
 	"context"
 	"errors"
+	"testing"
+
 	"github.com/golang/mock/gomock"
 	"github.com/stretchr/testify/assert"
 	"github.com/user-ranking/internal/application"
 	"github.com/user-ranking/internal/domain"
 	application_mock "github.com/user-ranking/internal/mocks/application"
 	domain_mock "github.com/user-ranking/internal/mocks/domain"
-	"testing"
 )
 
 func TestGetRankingTestHandler_Handle(t *testing.T) {

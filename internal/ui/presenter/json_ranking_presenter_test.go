@@ -3,10 +3,11 @@ package presenters_test
 import (
 	"bytes"
 	"encoding/json"
+	"testing"
+
 	"github.com/stretchr/testify/assert"
 	"github.com/user-ranking/internal/domain"
 	presenters "github.com/user-ranking/internal/ui/presenter"
-	"testing"
 )
 
 func TestJsonRankingPresenter_PresentMany(t *testing.T) {
