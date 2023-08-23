@@ -5,6 +5,16 @@ import (
 	"runtime"
 )
 
+const (
+	ServerErrorTag         string = "server-error"
+	InvalidRequestErrorTag string = "invalid-request-error"
+	UserErrorTag           string = "user-error"
+
+	NotFoundCode        string = "resource-not-found"
+	UnexpectedErrorCode string = "unexpected-error"
+	BadRequestCode      string = "bad-request"
+)
+
 type ErrInterface interface {
 	Code() string
 	Tag() string
@@ -59,5 +69,26 @@ func NewError(message string, code string, tag string) DomainError {
 		code:    code,
 		tag:     tag,
 		stack:   callers(),
+	}
+}
+
+type ValidationErr struct {
+	DomainError
+}
+
+type NotFoundErr struct {
+	DomainError
+}
+
+func NewValidationErr(msg string, tag string) error {
+	return ValidationErr{
+		DomainError: NewError(msg, BadRequestCode, tag),
+	}
+}
+
+func NewUserNotFoundErr(userId UserId) error {
+	msg := fmt.Sprintf("user not found with id: %s", userId)
+	return NotFoundErr{
+		DomainError: NewError(msg, NotFoundCode, UserErrorTag),
 	}
 }

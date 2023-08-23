@@ -15,10 +15,22 @@ func TestNewUserId(t *testing.T) {
 		ctrl := gomock.NewController(t)
 		defer ctrl.Finish()
 
-		userId := uint(0)
+		userId := "1"
 
-		id := domain.NewUserId(userId)
-		assert.Equal(t, userId, uint(id))
+		id, err := domain.NewUserId(userId)
+		assert.NoError(t, err)
+		assert.Equal(t, userId, string(*id))
+	})
+
+	t.Run("invalid user id", func(t *testing.T) {
+		ctrl := gomock.NewController(t)
+		defer ctrl.Finish()
+
+		userId := ""
+
+		id, err := domain.NewUserId(userId)
+		assert.Error(t, err)
+		assert.Nil(t, id)
 	})
 }
 
@@ -43,14 +55,14 @@ func TestNewRank(t *testing.T) {
 		ctrl := gomock.NewController(t)
 		defer ctrl.Finish()
 
-		id := uint(0)
-		score := int(4)
-		expectedRank := domain.Rank{
-			UserId: domain.UserId(id),
-			Score:  domain.Score(score),
+		id := domain.UserId("1")
+		score := domain.Score(4)
+		expectedRank := domain.UserRank{
+			UserId: id,
+			Score:  score,
 		}
 
-		rank := domain.NewRank(id, score)
+		rank := domain.NewUserRank(id, score)
 		assert.Equal(t, expectedRank, rank)
 	})
 }

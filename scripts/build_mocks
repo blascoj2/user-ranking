@@ -1,0 +1,7 @@
+#!/bin/bash
+
+rm -r ../internal/mocks
+
+mockgen -destination=../internal/mocks/domain/repository.go -package=domain_mock -source=../internal/domain/repository.go
+
+mockgen -destination=../internal/mocks/application/presenters.go -package=application_mock -source=../internal/application/presenters.go
